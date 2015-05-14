@@ -1,5 +1,7 @@
 .DS_STORE
 .vagrant
 snapshot_*
+snapshot/
 public
+data
 !public/index.php
