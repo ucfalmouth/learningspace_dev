@@ -18,7 +18,7 @@ $CFG->dboptions = array (
 );
 
 $CFG->wwwroot   = 'http://192.168.33.10';
-$CFG->dataroot  = '/var/tmp/data';
+$CFG->dataroot  = '/var/www/data';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;

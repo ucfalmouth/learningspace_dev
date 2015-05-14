@@ -15,10 +15,13 @@ echo "extracting snapshot..."
 # extract (most recent) snapshot file
 snapshot_file=$(find snapshot_* | tail -1)
 tar -pxzf $snapshot_file
+# rm -rf /var/www/snapshot/files
+# rm -rf /var/www/snapshot/db.sql
+# rm -rf /var/www/snapshot/data
 
 mv -f files/* /var/www/public
 # overwrite config file
-mv -f /var/www/snapshot/config.php /var/www/public/config.php
+cp -f /var/www/snapshot/config.php /var/www/public/config.php
 
 # construct data root
 if [ ! -d "/var/www/data" ] && [ "$FILECOUNT" -eq 1 ]; then
