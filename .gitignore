@@ -5,5 +5,5 @@ snapshot/db.sql
 snapshot/files
 snapshot/data
 public
+!public/scotchbox/index.php
 data
-!public/index.php
