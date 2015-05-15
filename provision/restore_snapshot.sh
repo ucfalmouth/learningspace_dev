@@ -106,6 +106,12 @@ else
       echo "database export found"
       echo "database import only"
       database_import
+    else
+      echo "no snapshot found"
+      echo "downloading blank moodle 2.9 snapshot"
+      git clone https://github.com/ucfalmouth/moodle_snapshots.git /var/www/snapshot
+      flush_import_snapshot
+      # git clone -b mybranch --single-branch git://sub.domain.com/repo.git
     fi
   fi
 fi
