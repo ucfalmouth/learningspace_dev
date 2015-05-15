@@ -49,8 +49,9 @@ mysql -u root -proot scotchbox < /var/www/snapshot/db.sql
 
 echo "snapshot restored"
 
-mkdir -p /var/www/public/scotch
-cp -u /var/www/scotchbox_index.php /var/www/public/scotch
+# mkdir -p /var/www/public/scotch
+# cp -u /var/www/scotchbox_index.php /var/www/public/scotch/index.php
+
 # replace apache_run_user/group with vagrant to allow allow writing of session variables
 cp /var/www/apache2.conf /etc/apache2
 sudo /etc/init.d/apache2 restart
