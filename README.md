@@ -1,22 +1,44 @@
-Learningspace DEV
+Moodle DEV
 ==========
 
-The idea is that anyone on the team can (relatively) quickly and easily get a test version of the learningspace working on their machine, no technical expertise required. This same environment can also be used by devs on the team to experiment with plugins or trial upgrades etc.
+This [vagrantfile][5] is intended to provide a stable, repeatable and transferable development environment. Using this anyone on the team should be able to quickly* (~1 minute) get a test version of moodle working on their machine, optionally with a fresh snapshot of the live environment applied.
 
-This whole development setup is forked (stolen) from [box.scotch.io][16], described in an article at [scotch.io][17]. It is only slightly modified to simplify some falmouth specific stuff.
+No technical expertise should be required to get moodle working in this way     (full instructions given below). Though  mainly intended for use by devs on the team to experiment with plugins or trial upgrades etc, others could equally use this to try out a new course layout (which they could then easily export and share).
+
+A key advantage of this way of working is that everyone can have access to an identical installation and do what they want with it, even if they are working on a different platform (eg windows). The other advantage is that this development is easily modified and disseminated for testing, so the underlying stack can be completely changed (eg to a windows server or linux with nginx).
+
+\* *on initial setup installation will be slower, as linux image will be downloaded* 
+
+###Credits
+This whole development setup is forked (stolen) from [box.scotch.io][16], described in an article at [scotch.io][17]. It is only slightly modified to add some moodle specific stuff and the auto provisioning of  moodle snapshots.
+
+##Requirements
+
+There are a couple of easily installed requirements before you can use moodle_dev. They are simple to install, couple of minutes tops.
+
+* [Vagrant][1]
+* [VirtualBox][4] 
+* [Vagrant Manager][2] (optional GUI for vagrant)
+
+##Usage
+### blank moodle
+
+* Clone or [download][6] (and extract) this repository to your chosen directory
+* Open terminal `cd chosendirectory` and type `vagrant up`
+* Access the working moodle install at  [http://192.168.33.10/][3]
+
+### using snapshot (of a live moodle site)
+
+* Clone or [download][6] (and extract) this repository to your chosen directory
+* Drop the [snapshot file](#createsnapshot) into the snapshot directory 
+* Open terminal `cd chosendirectory` and type `vagrant up`
+* Access the working moodle install at  [http://192.168.33.10/][3]
 
 
-## Usage
 
-* Download and Install [Vagrant][1]
-* Download and Install [VirtualBox][4]
-* Clone the Scotch Box GitHub Repository
-* Run Vagrant Up
-* (optionally) install [Vagrant Manager][2]
-* Access Your Project at  [http://192.168.33.10/][3]
  
 
-## Features
+## Details
 
 For full list of feature see [box.scotch.io][16]
 
@@ -26,18 +48,15 @@ For full list of feature see [box.scotch.io][16]
 - PHP errors turned on
 - Operating System agnostic
 - Bootstrap and jQuery included
-- Chef and Puppet ready*
+- Chef and Puppet ready
 - Super easy database access
 - Git
 - Composer
 - NPM
 - Grunt / Bower / Yeoman / Gulp
 
-\* *in case you want to add extra features on Vagrant Up*
 
-## Database Details
-
-| Key  | Value |
+|   | |
 | ------------- | ------------- |
 | Database Name  | scotchbox  |
 | Database User  | root  |
@@ -47,9 +66,27 @@ For full list of feature see [box.scotch.io][16]
 | SSH User  | vagrant  |
 | SSH Password  | vagrant  |
 
+
+<a name="createsnapshot"></a>
+
+## Creating a snapshot
+
+If you would like to make a copy of another site for use with moodle dev, tarball the following (so named) components as snapshot_<dateorblank>
+
+- files (the moodle system files inc plugins/themes directory)
+- data (private moodle_data folder)
+- db.sql (export should include drop tables)
+
+eg
+`tar -pcvzf snapshot_$(date +"%Y-%m-%d_%H-%M").tar data db.sql files`
+
+
+
 [1]: http://www.vagrantup.com/downloads
 [2]: http://vagrantmanager.com/
 [3]: http://192.168.33.10/
 [4]: https://www.virtualbox.org/wiki/Downloads
+[5]: https://www.vagrantup.com/
+[6]: https://github.com/ucfalmouth/moodle_dev/archive/master.zip
 [16]: http://box.scotch.io
 [17]: http://scotch.io/bar-talk/introducing-scotch-box-a-vagrant-lamp-stack-that-just-works
