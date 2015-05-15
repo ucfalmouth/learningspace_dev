@@ -31,7 +31,7 @@ tar -pxzf $snapshot_file
 mv -f files/* /var/www/public
 
 # overwrite moodle config file
-cp -f /var/www/snapshot/config.php /var/www/public/config.php
+cp -f /var/www/provision/config.php /var/www/public/config.php
 
 # construct data root
 echo "constructing data..."
@@ -50,10 +50,10 @@ mysql -u root -proot scotchbox < /var/www/snapshot/db.sql
 echo "snapshot restored"
 
 # mkdir -p /var/www/public/scotch
-# cp -u /var/www/scotchbox_index.php /var/www/public/scotch/index.php
+# cp -u /var/www/provision/scotchbox_index.php /var/www/public/scotch/index.php
 
 # replace apache_run_user/group with vagrant to allow allow writing of session variables
-cp /var/www/apache2.conf /etc/apache2
+cp /var/www/provision/apache2.conf /etc/apache2
 sudo /etc/init.d/apache2 restart
 echo "learningspace_dev should be available at http://192.168.33.10/"
 

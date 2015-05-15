@@ -8,6 +8,6 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "tlsdev"
   config.vm.synced_folder ".", "/var/www", :mount_options => ["dmode=777", "fmode=666"]
 
-  config.vm.provision "shell", path: "snapshot/restore_snapshot.sh"
+  config.vm.provision "shell", path: "provision/restore_snapshot.sh"
 
 end

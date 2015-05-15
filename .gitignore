@@ -1,9 +1,7 @@
 .DS_STORE
 .vagrant
-snapshot_*
-snapshot/db.sql
-snapshot/files
-snapshot/data
+snapshot
+!snapshot/README.md
 public
 !public/scotchbox/index.php
 data
