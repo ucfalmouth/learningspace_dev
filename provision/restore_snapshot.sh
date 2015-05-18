@@ -56,12 +56,13 @@ flush_import_snapshot ()
 }
 git_get_snapshot () 
 {
-  echo "downloading blank moodle 2.9 snapshot"
+  echo "downloading blank moodle snapshot"
   rm -rf /var/www/snapshot
   # clone single branch (not working in this git version)
   # git clone -b m29 --single-branch https://github.com/ucfalmouth/moodle_snapshots.git /var/www/snapshot
   git clone https://github.com/ucfalmouth/moodle_snapshots.git /var/www/snapshot
   cd /var/www/snapshot
+  echo "selecting $1..."
   git checkout $1
 }
 
