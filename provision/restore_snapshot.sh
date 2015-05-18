@@ -34,15 +34,16 @@ extract_snapshot ()
 }
 create_data_root ()
 {
-  echo "constructing data..."
+  echo "populating data root..."
   mkdir -p /var/www/data
-  cp -u /var/www/snapshot/data/* /var/www/data
+  cp -rf /var/www/snapshot/data /var/www
   rm -rf /var/www/data/cache/*
   rm -rf /var/www/data/sessions/*
 }
 create_system_files ()
 {
-  cp -f /var/www/snapshot/files/* /var/www/public
+  echo "populating files..."
+  cp -fr /var/www/snapshot/files/* /var/www/public
 }
 flush_import_snapshot ()
 { 
@@ -52,6 +53,16 @@ flush_import_snapshot ()
   database_import
   moodle_config
   echo "snapshot restored"
+}
+git_get_snapshot () 
+{
+  echo "downloading blank moodle 2.9 snapshot"
+  rm -rf /var/www/snapshot
+  # clone single branch (not working in this git version)
+  # git clone -b m29 --single-branch https://github.com/ucfalmouth/moodle_snapshots.git /var/www/snapshot
+  git clone https://github.com/ucfalmouth/moodle_snapshots.git /var/www/snapshot
+  cd /var/www/snapshot
+  git checkout $1
 }
 
 # Is there a tarball snapshot present?
@@ -108,9 +119,8 @@ else
       database_import
     else
       echo "no snapshot found"
-      echo "downloading blank moodle 2.9 snapshot"
-      rm -rf /var/www/snapshot
-      git clone https://github.com/ucfalmouth/moodle_snapshots.git /var/www/snapshot
+      git_get_snapshot m29
+      extract_snapshot
       flush_import_snapshot
       # git clone -b mybranch --single-branch git://sub.domain.com/repo.git
     fi
