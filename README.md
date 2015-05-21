@@ -34,9 +34,14 @@ There are a couple of easily installed requirements before you can use moodle_de
 * Open terminal `cd chosendirectory` and type `vagrant up`
 * Access the working moodle install at  [http://192.168.33.10/][3]
 
+### running multiple instances
 
+There is nothing to stop you running multiple moodle installs simultaneously, but you will need to change the IP address of additional VMs.
 
- 
+* Change `config.vm.network` in the Vagrantfile to your desired IP, eg `192.168.33.*`
+* Follow either method above to install moodle
+* change the IP address in public/config.php so moodle knows where to go
+
 
 ## Details
 
