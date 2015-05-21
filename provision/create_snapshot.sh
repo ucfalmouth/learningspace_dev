@@ -1,3 +1,5 @@
+#!/bin/bash
+
 scotchbox_snapshot ()
 {
   if [ "$1" == "help" ] || [ "$1" == "-h" ]; then
@@ -10,11 +12,16 @@ scotchbox_snapshot ()
         EXPORTDATE=$(date +"%m_%d_%Y")
         mkdir -p /var/www/snapshot_$EXPORTDATE
 
-        cp -R /Applications/MAMP/htdocs/$MDLFILES /var/www/snapshot_$EXPORTDATE/files
+        echo "copying web root..."
+        cp -R $MDLFILES /var/www/snapshot_$EXPORTDATE/files
         rm -rf /var/www/snapshot_$EXPORTDATE/files/.git
-        cp -R /Applications/MAMP/moodle_data/$MDLDATA /var/www/snapshot_$EXPORTDATE/data
-        /Applications/MAMP/Library/bin/mysqldump -uroot -proot $MDLDB > /var/www/snapshot_$EXPORTDATE/db.sql
+        echo "copying data root..."
+        cp -R $MDLDATA /var/www/snapshot_$EXPORTDATE/data
+        echo "exporting database..."
+        mysqldump -uroot -proot $MDLDB > /var/www/snapshot_$EXPORTDATE/db.sql
         cd /var/www/snapshot_$EXPORTDATE
+        echo "compressing snapshot..."
         tar -pcvzf snapshot_$EXPORTDATE.tar files data db.sql
+        echo "complete"
   fi
 }
