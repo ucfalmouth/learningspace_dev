@@ -44,7 +44,7 @@ There is nothing to stop you running multiple moodle installs simultaneously, bu
 
 ### using Moodle Development Kit
 
-If you would like to use [mdk][7] to do moodley things from the commandline within your instance, `vagrant ssh` and `install_mdk`.
+If you would like to use [mdk][7] to do moodley things from the commandline within your instance, `vagrant ssh`, `install_mdk` and `mdk init`.
 
 ## Details
 
