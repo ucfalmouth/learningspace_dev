@@ -34,6 +34,8 @@ There are a couple of easily installed requirements before you can use moodle_de
 * Open terminal `cd chosendirectory` and type `vagrant up`
 * Access the working moodle install at  [http://192.168.33.10/][3]
 
+Consider that as this is a copy of the live site, it might affect analytics data. You could consider using a [browser extension][8] to prevent this.
+
 ### running multiple instances
 
 There is nothing to stop you running multiple moodle installs simultaneously, but you will need to change the IP address of additional VMs.
@@ -97,5 +99,6 @@ eg
 [5]: https://www.vagrantup.com/
 [6]: https://github.com/ucfalmouth/moodle_dev/archive/master.zip
 [7]: https://github.com/FMCorz/mdk
+[8]: https://chrome.google.com/webstore/detail/block-yourself-from-analy/fadgflmigmogfionelcpalhohefbnehm/related
 [16]: http://box.scotch.io
 [17]: http://scotch.io/bar-talk/introducing-scotch-box-a-vagrant-lamp-stack-that-just-works
