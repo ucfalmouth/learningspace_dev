@@ -42,6 +42,9 @@ There is nothing to stop you running multiple moodle installs simultaneously, bu
 * Follow either method above to install moodle
 * change the IP address in public/config.php so moodle knows where to go
 
+### using Moodle Development Kit
+
+If you would like to use [mdk][7] to do moodley things from the commandline within your instance, `vagrant ssh`, `install_mdk` and `mdk init`.
 
 ## Details
 
@@ -93,5 +96,6 @@ eg
 [4]: https://www.virtualbox.org/wiki/Downloads
 [5]: https://www.vagrantup.com/
 [6]: https://github.com/ucfalmouth/moodle_dev/archive/master.zip
+[7]: https://github.com/FMCorz/mdk
 [16]: http://box.scotch.io
 [17]: http://scotch.io/bar-talk/introducing-scotch-box-a-vagrant-lamp-stack-that-just-works
