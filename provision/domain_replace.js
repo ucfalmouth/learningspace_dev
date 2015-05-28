@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  Replace link learningspace.falmouth.ac.uk hrefs with the [development] url. Designed to work on moodle_dev default (scotchbox) urls.
 // @author       tombola
-// @match        http://*/*
+// @match        http://192.168.33.*
 // @grant        none
 // @require http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
