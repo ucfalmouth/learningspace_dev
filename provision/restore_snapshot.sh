@@ -75,9 +75,15 @@ FILESEXPORT=0
 DATAEXPORT=0
 if [ -d "/var/www/snapshot/files" ]; then
   FILESEXPORT=$(ls /var/www/snapshot/files | wc -l)
+  if [ "$FILESEXPORT" -gt 0 ]; then
+    FILESEXPORT=1
+  fi
 fi
 if [ -d "/var/www/snapshot/data" ]; then
   DATAEXPORT=$(ls /var/www/snapshot/data | wc -l)
+  if [ "$DATAEXPORT" -gt 0 ]; then
+    DATAEXPORT=1
+  fi
 fi
 echo "snapshot $SNAPSHOTCOUNT, db $DBEXPORT, files $FILESEXPORT, data $DATAEXPORT"
 
