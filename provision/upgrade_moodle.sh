@@ -17,11 +17,13 @@ rm -rf /var/www/public/*
 rm -rf /var/www/public/.*
 
 echo "cloning moodle core ($VERSION).."
-# git clone https://github.com/moodle/moodle.git /var/www/public
-git clone https://github.com/moodle/moodle.git --branch $VERSION --single-branch /var/www/public
-# echo "selecting "$VERSION
+git clone https://github.com/moodle/moodle.git /var/www/public
+# would clone single branch, but gitversion in scotchbox does not seem to support this
+# git clone https://github.com/moodle/moodle.git --branch $VERSION --single-branch /var/www/public
+echo "selecting "$VERSION
 cd /var/www/public
-# git checkout $VERSION
+git checkout $VERSION
+# remove git repo 
 rm -rf .git
 
 echo "restoring site configuration.."
@@ -36,7 +38,7 @@ cp -R /var/www/plugins/$VERSION/local/* /var/www/public/local
 rm /var/www/data/temp
 
 echo "running moodle upgrade script..."
-php /var/www/public/admin/cli/upgrade.php
+php /var/www/public/admin/cli/upgrade.php --non-interactive
 
 echo "falmouth specific - resetting custom course format.."
 mysql -u root --password=root -e 'UPDATE mdl_course SET format="topics" WHERE format="topicsdeluxe"' scotchbox
