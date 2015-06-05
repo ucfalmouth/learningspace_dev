@@ -1,6 +1,10 @@
 Moodle DEV
 ==========
 
+This **upgrade branch** will automatically run an upgrade to moodle over the top of an imported snapshot. This is intended to make a robust and repeatable upgrade testing environment so that a live snapshot can be upgraded for testing. Functionality is otherwise stock moodle_dev (as below)
+
+---
+
 This [vagrantfile][5] is intended to provide a stable, repeatable and transferable development environment. Using this anyone on the team should be able to quickly* (~1 minute) get a test version of moodle working on their machine, optionally with a fresh snapshot of the live environment applied.
 
 No technical expertise should be required to get moodle working in this way     (full instructions given below). Though  mainly intended for use by devs on the team to experiment with plugins or trial upgrades etc, others could equally use this to try out a new course layout (which they could then easily export and share).
