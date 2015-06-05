@@ -1,0 +1,214 @@
+/**
+ * Global stylesheet for moodletxt plugin, auto-included by Moodle
+
+ * moodletxt is distributed as GPLv3 software, and is provided free of charge without warranty. 
+ * A full copy of this licence can be found @
+ * http://www.gnu.org/licenses/gpl.html
+ * In addition to this licence, as described in section 7, we add the following terms:
+ *   - Derivative works must preserve original authorship attribution (@author tags and other such notices)
+ *   - Derivative works do not have permission to use the trade and service names 
+ *     "ConnectTxt", "txttools", "moodletxt", "moodletxt+", "Blackboard", "Blackboard Connect" or "Cy-nap"
+ *   - Derivative works must be have their differences from the original material noted,
+ *     and must not be misrepresentative of the origin of this material, or of the original service
+ * 
+ * Anyone using, extending or modifying moodletxt indemnifies the original authors against any contractual
+ * or legal liability arising from their use of this code.
+ * 
+ * @package uk.co.moodletxt
+ * @author Greg J Preece <connecttxtsupport@blackboard.com>
+ * @copyright Copyright &copy; 2014 Blackboard Connect. All rights reserved.
+ * @license http://www.gnu.org/licenses/gpl.html GNU General Public Licence v3 (See code header for additional terms)
+ * @version 2014111801
+ * @since 2011061201
+ */
+
+.mdltxt_right {
+    float               :   right;
+    width               :   45%;
+    margin-bottom       :   2em;
+}
+
+.mdltxt_left {
+/*    float               :   left;*/
+    width               :   45%;
+    margin-bottom       :   2em;
+}
+
+img.mdltxtClickableIcon {
+    cursor              :   pointer;
+}
+
+img.mdltxtBaselineIcon {
+    vertical-align      :   bottom; /* Your eyes do not deceive you, this is not baseline. Don't ask. */
+}
+
+select.mdltxt {
+    min-width           :   100px;
+}
+
+.mdltxtInlineList dt {
+    float               :   left;
+    margin-right        :   0.3em;
+    font-weight         :   bold;
+}
+
+.mdltxtCleared {
+    clear               :   both;
+}
+
+table.boxwidthwide { /* Augmentation of Moodle CSS class */
+    width               :   100%;
+}
+
+div.mdltxtMultiselect div select:first-of-type {
+    min-width           :   100px;
+}
+
+/*
+ * INLINE FORM RENDERER STYLE OVERRIDES
+ */
+.mform fieldset.mtxtFieldsetHidden {
+    border              :   0;
+}
+
+.mform fieldset.mtxtInline {
+    padding             :   0;
+    display             :   inline;
+    width               :   auto;
+}
+ 
+ul.mtxtInlineFormElements{
+    margin-left         :   0;
+}
+
+ul.inline li, /* Mod of Moodle base class */
+ul.mtxtInlineFormElements li {
+    list-style          :   none;
+    display             :   inline;
+}
+
+/*
+ * CUSTOM STYLE MODIFIERS FOR ACCOUNTS PAGE
+ */
+button#mdltxtUpdateAllAccounts { 
+    display             :   block;
+    margin              :   1em auto 1em auto;
+}
+
+div#mdltxtAccountRestrictionsDialog select {
+    width               :   75%;
+}
+
+div#mdltxtAccountRestrictionsDialog input[type=text] {
+    width               :   75%;
+}
+
+table#accountListTable tr td:nth-child(4),
+table#accountListTable tr td:nth-child(5),
+table#accountListTable tbody tr td:nth-child(4),
+table#accountListTable tbody tr td:nth-child(5) {
+    text-align          :   center;
+}
+
+/*
+ * ADDRESSBOOK LISTINGS
+ */
+#mdltxtAddressbookList li {
+    float               :   left;
+    width               :   30%;
+    line-height         :   16px;
+    list-style-position :   inside;
+    list-style-type     :   circle;
+}
+
+#mdltxtAddressbookList li.mdltxtPrivateAddressbook {
+    list-style-image    :   url([[pix:block_moodletxt|icons/book_private]]);
+}
+
+#mdltxtAddressbookList li.mdltxtGlobalAddressbook {
+    list-style-image    :   url([[pix:block_moodletxt|icons/book_global]]);
+}
+
+/*
+ * RECEIVED MESSAGES PAGE
+ */
+table.mtxtCentredCells {
+    text-align          :   center;
+}
+
+img.mtxtMessageDeleteButton,
+img.mtxtMessageReplyButton,
+img.mtxtMessageTagButton {
+    cursor              :   pointer;
+    margin-left         :   2px;
+    margin-right        :   2px;
+}
+
+div.mtxtTagCloud p.tags {
+    font-size           :   1.5em;
+}
+
+span.mtxtTag {
+    opacity             :   0.5;
+    filter              :   alpha(opacity=50); /* IE 8 and below */
+    border              :   1px solid;
+    font-weight         :   normal;
+    margin              :   3px;
+    padding             :   3px;
+    border-radius       :   7px 5px;
+    cursor              :   url([[pix:block_moodletxt|icons/hand]]), url(pix/icons/hand.cur), pointer;
+}
+
+span.mtxtAppliedTag {
+    border              :   1px solid;
+    border-radius       :   2px;
+    padding             :   1px;
+    cursor              :   url([[pix:block_moodletxt|icons/hand]]), url(pix/icons/hand.cur), pointer;
+}
+
+div.mtxtTagCloud p span.selected {
+    border              :   2px solid;
+    font-weight         :   bold;
+}
+
+.mdltxtControlTray {
+    position            :   fixed;
+    width               :   100%;
+    height              :   50px;
+    left                :   0;
+    bottom              :   -50px;
+    z-index             :   5;
+    background-color    :   #ffffff;
+    border-top          :   2px ridge #000000;
+/*    border-right        :   none;
+    border-bottom       :   2px ridge #000000;
+    border-left         :   2px ridge #000000;*/
+/*    border-top-left-radius : 4px;
+    border-bottom-left-radius : 4px; */
+    text-align          :   center;
+    overflow            :   hidden;
+}
+
+#mdltxtNewTagForm {
+    width               :   25%;
+    float               :   right;
+}
+
+#mdltxtTagListScroller {
+    height              :   45px;
+    margin-top          :   3px;
+    overflow-x          :   scroll;
+    overflow-y          :   hidden;
+}
+
+.mdltxtAddTagButton {
+    cursor              :   pointer;
+}
+
+/* Override table highlighting from theme */
+#mdltxtReceivedMessagesList tr.droppableHighlight,
+#mdltxtReceivedMessagesList tr.droppableHighlight td,
+.droppableHighlight {
+    background-color    :   #ffe45c;
+}
+
