@@ -16,10 +16,13 @@ rm -rf /var/www/public/*
 # ensure any hidden files also gone
 rm -rf /var/www/public/.*
 
-echo "cloning moodle core.."
-git clone https://github.com/moodle/moodle.git /var/www/public
-echo "selecting "$VERSION
-git checkout $VERSION
+echo "cloning moodle core ($VERSION).."
+# git clone https://github.com/moodle/moodle.git /var/www/public
+git clone https://github.com/moodle/moodle.git --branch $VERSION --single-branch /var/www/public
+# echo "selecting "$VERSION
+cd /var/www/public
+# git checkout $VERSION
+rm -rf .git
 
 echo "restoring site configuration.."
 cp /var/www/temp/config.php /var/www/public
@@ -33,7 +36,7 @@ cp -R /var/www/plugins/$VERSION/local/* /var/www/public/local
 rm /var/www/data/temp
 
 echo "running moodle upgrade script..."
-php admin/cli/upgrade.php
+php /var/www/public/admin/cli/upgrade.php
 
 echo "falmouth specific - resetting custom course format.."
 mysql -u root --password=root -e 'UPDATE mdl_course SET format="topics" WHERE format="topicsdeluxe"' scotchbox
