@@ -39,6 +39,3 @@ rm /var/www/data/temp
 
 echo "running moodle upgrade script..."
 php /var/www/public/admin/cli/upgrade.php --non-interactive
-
-echo "falmouth specific - resetting custom course format.."
-mysql -u root --password=root -e 'UPDATE mdl_course SET format="topics" WHERE format="topicsdeluxe"' scotchbox

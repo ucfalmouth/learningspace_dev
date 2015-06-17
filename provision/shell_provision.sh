@@ -12,5 +12,7 @@ echo "Configure apache for moodle:"
 source $SCRIPTDIR/configure_apache.sh
 echo "Upgrade moodle:"
 source $SCRIPTDIR/upgrade_moodle.sh
+echo "Apply institution specific config:"
+source $SCRIPTDIR/upgrade_specifics.sh
 
 cat $SCRIPTDIR/bash_profile.sh >> /home/vagrant/.bash_profile
